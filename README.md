@@ -51,7 +51,7 @@ public class Main {
         Connection conn = DriverManager.getConnection("jdbc:databend://localhost:8000", "root", "");
         Statement statement = conn.createStatement();
         statement.execute("SELECT number from numbers(200000) order by number");
-        ResultSet r = statement.getResultSet();
+        ResultSet rs = statement.getResultSet();
         // ** We must call `rs.next()` otherwise the query may be canceled **
         while (rs.next()) {
             System.out.println(r.getInt(1));
